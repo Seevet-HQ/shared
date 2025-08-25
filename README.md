@@ -7,7 +7,7 @@ This package contains shared utilities and models that can be used across differ
 This package is managed as a Git submodule. To add it to your service:
 
 ```bash
-git submodule add <repository-url> shared
+git submodule add git@github.com:Seevet-HQ/shared.git shared
 git submodule update --init --recursive
 ```
 
