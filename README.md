@@ -1,6 +1,6 @@
 # Seevet Shared Package
 
-This package contains shared utilities and models that can be used across different Seevet services, regardless of whether they're REST or GraphQL APIs.
+This package contains shared utilities and models that can be used across different Seevet services.
 
 ## Installation
 
@@ -33,43 +33,6 @@ export class User extends BaseModel {
 }
 ```
 
-### Generic Response
-
-Use `GenericResponse` for consistent API responses:
-
-```typescript
-import { GenericResponse } from '@seevet/shared';
-
-// Success response
-const successResponse = GenericResponse.success(userData, 'User created successfully');
-
-// Error response
-const errorResponse = GenericResponse.error('User not found');
-
-// From existing error
-const errorFromException = GenericResponse.fromError(new Error('Database connection failed'));
-```
-
-### Pagination Response
-
-Use `PaginationResponse` for paginated data:
-
-```typescript
-import { PaginationResponse } from '@seevet/shared';
-
-// Create paginated response
-const paginatedResponse = PaginationResponse.create(
-  users,           // data array
-  1,               // current page
-  10,              // items per page
-  100,             // total items
-  'Users retrieved successfully'
-);
-
-// Empty paginated response
-const emptyResponse = PaginationResponse.empty(1, 10);
-```
-
 ## Building
 
 ```bash
@@ -87,6 +50,6 @@ npm run clean # Clean build artifacts
 ## Architecture Notes
 
 - **Framework Agnostic**: These classes work with any framework (NestJS, Express, Fastify, etc.)
-- **Protocol Agnostic**: Can be used with REST, GraphQL, or any other protocol
+- **Protocol Agnostic**: Can be used with GraphQL or any other protocol
 - **Type Safe**: Full TypeScript support with generics
-- **Consistent**: Standardized response format across all services
+- **Consistent**: Standardized model format across all services
